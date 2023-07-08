@@ -1,0 +1,123 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    align-items: center;
+    position: fixed;
+    background-color: transparent;
+    top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+
+    @media (min-width: 1202px) {
+        padding-left: 65px;
+        padding-right: 65px;
+    }
+
+    @media (min-width: 992px) {
+        top: 56px;
+    }
+
+    &.header-dark {
+        color: #101113;
+
+        .logo {
+            svg {
+                path {
+                    fill: #101113;
+                }
+            }
+        }
+
+        .button--header {
+            color: #E93B57;
+            border: 2px solid #E93B57;
+            transition: color .1s;
+            transition: stroke .1s;
+            transition: border .1s;
+
+            .button__item-and-icon {
+                svg path {
+                    stroke: #E93B57;
+                }
+            }
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: #E93B65;
+                    border: 2px solid #E93B65;
+
+                    .button__item-and-icon {
+                        svg path {
+                            stroke: #E93B65;
+                        }
+                    }
+                }
+            }
+        }
+
+        .burger-menu_lines {
+            background-color: #101113;
+
+            &::before {
+                background-color: #101113;
+            }
+        }
+    }
+
+    .button {
+        @media (max-width: 1201px) {
+            display: none;
+        }
+    }
+}
+
+.logo {
+    svg {
+        @media (max-width: 577px) {
+            width: 104px;
+            height: 28px;
+        }
+    }
+}
+
+.header--white {
+    color: white;
+}
+
+.header--dark {
+    color: dark;
+
+    .picture-dark {
+        display: block;
+    }
+}
+
+.header__nav-menu {
+    display: none;
+
+    @media (min-width: 1202px) {
+        gap: 60px;
+        display: flex;
+    }
+}
+
+.nav-menu__item {
+    font-size: 18px;
+    font-weight: 500;
+
+    @media (min-width: 992px) {
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+
+.header {
+    transition: opacity 0.3s ease-in-out;
+    /* Длительность и тип анимации */
+}
+
+.header.hidden {
+    opacity: 0;
+}

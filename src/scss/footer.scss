@@ -1,0 +1,93 @@
+.footer-section {
+    padding: 0 10px 10px 10px;
+}
+
+.footer__bg {
+    background: #17191D;
+    padding: 40px 20px;
+    border-radius: 30px;
+
+    @media (min-width: 577px) {
+        border-radius: 40px;
+        padding: 60px 60px 63px 60px;
+    }
+}
+
+.footer__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: 992px) {
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .logo {
+        @media (max-width: 992px) {
+            order: -1;
+        }
+
+        svg {
+            width: 188px;
+            height: 52px;
+        }
+    }
+}
+
+.footer__socials-link-and-number {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.footer__socials-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer__political-conf,
+.footer__tel {
+    font-weight: 500;
+    font-size: 16px;
+    color: #464E5F;
+}
+
+.footer__line {
+    border: 1px solid #464E5F;
+    opacity: 0.2;
+    margin: 32px 0;
+
+    @media (min-width: 577px) {
+        margin: 40px 0;
+    }
+}
+
+.footer__design-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer__design-title {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 111.5%;
+    color: #464E5F;
+    opacity: 0.5;
+}
+
+.footer__design-icon-and-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    img {
+        object-fit: unset;
+    }
+}
