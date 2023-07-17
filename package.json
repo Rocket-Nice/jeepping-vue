@@ -9,6 +9,8 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.20",
     "core-js": "^3.8.3",
+    "imask": "^7.1.2",
+    "pikaday": "^1.8.2",
     "swiper": "^10.0.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",

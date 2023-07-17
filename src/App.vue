@@ -6,7 +6,7 @@
 
 <script>
 import Header from './components/Header.vue'; // Импортируйте компонент Header
-import HomeView from './views/HomeView.vue'; // Импортируйте компонент footer
+import HomeView from './views/HomeView.vue'; // Импортируйте компонент Home
 import Footer from './components/footer.vue'; // Импортируйте компонент footer
 import headerColorMixin from '@/mixins/headerColorMixin';
 

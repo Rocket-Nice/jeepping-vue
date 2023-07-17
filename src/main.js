@@ -1,7 +1,14 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import globalMixins from './mixins/globalMixins.js';
+
+const app = createApp(App);
+
+app.mixin(globalMixins); // Регистрируйте глобальный миксин здесь
+
+app.use(store).use(router).mount('#app');
 
 import { Fancybox } from "@fancyapps/ui";
 Fancybox.bind("[data-fancybox]", {
@@ -141,5 +148,3 @@ class Accordion {
 //         element.addEventListener('blur', checkInput);
 //     });
 // }
-
-createApp(App).use(store).use(router).mount('#app')
