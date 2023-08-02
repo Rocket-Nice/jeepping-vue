@@ -142,7 +142,7 @@
                     <div class="checkbox-list__item swiper-slide">
                         <div class="location__checkbox this-checkbox">
                             <input class="custom-checkbox checkbox-location" id="1" type="checkbox">
-                            <label class="personal-account-info__not-checked" for="1">Залупа</label>
+                            <label class="personal-account-info__not-checked" for="1">Хачляндия</label>
                         </div>
                     </div> <!-- Закрываем checkbox-list__item -->
                 </div>
@@ -469,7 +469,7 @@ export default {
         nextStep() {
             var offerSteps = document.querySelectorAll('.personal-offer__');
             var personaSteps = document.querySelectorAll('.persona-offer__step');
-            console.log(personaSteps[this.currentIndex])
+
             if (this.currentIndex < offerSteps.length - 1) {
                 offerSteps[this.currentIndex].classList.remove('active-offer-step');
                 personaSteps[this.currentIndex].classList.remove('active-step-js');
@@ -488,9 +488,22 @@ export default {
                 this.$refs.backButton.style.display = 'none';
             }
 
+            this.checkedCheckboxes = document.querySelectorAll('input[type="checkbox"].checkbox-location:checked');
+            const list = document.querySelector('.left__location-items');
+
             // Передача чекбоксов
             if (this.countClickButtonNext === 3) {
-                this.checkedCheckboxes = document.querySelectorAll('input[type="checkbox"].checkbox-location:checked');
+                // Пройтись по каждому выбранному элементу чекбокса
+                this.checkedCheckboxes.forEach(function (checkbox) {
+                    let labelChecked = document.querySelector('label[for="' + checkbox.id + '"]');
+                    // Создать новый пункт списка
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('left__location-item');
+                    // Установить содержимое пункта списка как значение чекбокса
+                    listItem.textContent = labelChecked.textContent;
+                    // Добавить пункт списка в список
+                    list.appendChild(listItem);
+                });
             }
 
             // Передача дат
@@ -540,6 +553,8 @@ export default {
             }
 
             if (this.countClickButtonNext !== 4) {
+                document.querySelector('.personal-offer-submit').style.display = "none";
+                document.querySelector('.personal-offer__btn-container').style.maxWidth = 'unset';
                 const nextButton = this.$refs.nextButton;
                 const connectBtn = this.$refs.connectBtn;
                 const btnContainer = this.$refs.btnContainer;
@@ -567,11 +582,12 @@ export default {
                 }
             }
 
-            //Обнуление списка. Добавлено для возможности выбирать новые в случае, если нажата кнопка "назад"
-            const listContainer = document.querySelector('.left__location-items');
-            if (listContainer) {
+            if (this.countClickButtonNext < 3) {
+                //Обнуление списка. Добавлено для возможности выбирать новые в случае, если нажата кнопка "назад"
+                const listContainer = document.querySelector('.left__location-items');
                 listContainer.innerHTML = '';
             }
+
         },
 
         submitForm() {
